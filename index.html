@@ -60,7 +60,21 @@
         }
         childElem.appendChild(deletebtn)
         parentElem.appendChild(childElem)
-    }
+
+        const editbtn=document.createElement('input')
+        editbtn.type='button'
+        editbtn.value='Edit'
+        editbtn.onclick= ()=>{
+            localStorage.removeItem(obj.email)
+            parentElem.removeChild(childElem)
+            document.getElementById('usernameInputTag').value=obj.name
+            document.getElementById('emailInputTag').value =obj.email
+            document.getElementById('phoneInputTag').value=obj.phone
+    }   
+        childElem.appendChild(deletebtn)
+        childElem.appendChild(editbtn)
+        parentElem.appendChild(childElem)
+}
 </script>
     </body>
 </html>
