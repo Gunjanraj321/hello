@@ -4,7 +4,7 @@ window.addEventListener('load', () => {
 });
 
 function fetchDataFromCrudCrud(){
-    axios.get("https://crudcrud.com/api/45960af336f045fb846c4b4bfc01863b/appointmentData")
+    axios.get("https://crudcrud.com/api/adea1a2d15274ab1a4851c66e328b3b7/appointmentData")
     .then((res) => {
 
         for(var i=0;i<res.data.length;i++){
@@ -29,7 +29,7 @@ function crudcrudoperation(event){
         phone
     }
 
-    axios.post("https://crudcrud.com/api/45960af336f045fb846c4b4bfc01863b/appointmentData",obj)
+    axios.post("https://crudcrud.com/api/adea1a2d15274ab1a4851c66e328b3b7/appointmentData",obj)
         .then((res) => {
            showUserOnScreen(res.data)
         })
@@ -51,10 +51,10 @@ function crudcrudoperation(event){
     const deletebtn=document.createElement('input')
     deletebtn.value='Delete';
     deletebtn.type= 'button'
-    deletebtn.addEventListener('click',()=>{
+    deletebtn.addEventListener('click', ()=>{
         //Handle delete action
-        parentElem.removeChild(childElem)
-        
+        parentElem.removeChild(childElem);
+        deleteDataFromCrudCrud(obj._id);
     });
     
     const editbtn=document.createElement('input')
@@ -67,9 +67,20 @@ function crudcrudoperation(event){
         document.getElementById('emailInputTag').value =obj.email
         document.getElementById('phoneInputTag').value=obj.phone
         parentElem.removeChild(childElem);
+       // editDataFromCrudCrud(obj._id);
     });
     childElem.appendChild(deletebtn)
     childElem.appendChild(editbtn)
     parentElem.appendChild(childElem)
 }
 
+function deleteDataFromCrudCrud(id) {
+    axios.delete(`https://crudcrud.com/api/adea1a2d15274ab1a4851c66e328b3b7/appointmentData/${id}`)
+        .catch((err) => {
+            console.log(err);
+        });
+    }
+
+// function editDataFromCrudCrud(id){
+//     axios.put(`https://crudcrud.com/api/adea1a2d15274ab1a4851c66e328b3b7/appointmentData/${id}`,)
+// }
