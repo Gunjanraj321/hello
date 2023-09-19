@@ -63,11 +63,11 @@ function crudcrudoperation(event){
     editbtn.addEventListener('click',()=>{
         //Handle edit action here
         parentElem.removeChild(childElem)
-        document.getElementById('usernameInputTag').value=obj.name
+        document.getElementById('userNameInputTag').value=obj.name
         document.getElementById('emailInputTag').value =obj.email
         document.getElementById('phoneInputTag').value=obj.phone
         parentElem.removeChild(childElem);
-       // editDataFromCrudCrud(obj._id);
+        editDataFromCrudCrud(obj._id);
     });
     childElem.appendChild(deletebtn)
     childElem.appendChild(editbtn)
@@ -81,6 +81,22 @@ function deleteDataFromCrudCrud(id) {
         });
     }
 
-// function editDataFromCrudCrud(id){
-//     axios.put(`https://crudcrud.com/api/adea1a2d15274ab1a4851c66e328b3b7/appointmentData/${id}`,)
-// }
+function editDataFromCrudCrud(id){
+    const updateName = document.getElementById('userNameInputTag').value;
+    const updateEmail = document.getElementById('emailInputTag').value;
+    const updatePhone =document.getElementById("phoneInputTag").value;
+
+    const updateObj = {
+        name : updateName,
+        email: updateEmail,
+        phone: updatePhone
+    };
+
+    axios.put(`https://crudcrud.com/api/adea1a2d15274ab1a4851c66e328b3b7/appointmentData/${id}`,)
+    .then( (res) => {
+        showUserOnScreen(res.data);
+    })
+    .catch( (err) => {
+        console.log(err);
+    });
+}
