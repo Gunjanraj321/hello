@@ -19,7 +19,7 @@ function saveTolocalStorage(event){
         })
 
     //localStorage.setItem(obj.email, JSON.stringify(obj))
-    //showUserOnScreen(obj)
+    ///showUserOnScreen(obj)
     }
 
     function showUserOnScreen(obj){
