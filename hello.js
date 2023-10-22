@@ -14,17 +14,6 @@ const fetchDataFromCrudCrud = async () => {
     catch(err) {
         console.log(err)
     }
-
-    // axios.get("https://crudcrud.com/api/3d7204c49c774672ba41a7960a3158c8/appointmentData")
-    // .then((res) => {
-
-    //     for(var i=0;i<res.data.length;i++){
-    //         showUserOnScreen(res.data[i])           
-    //     }
-    // })
-    // .catch((err) => {
-    //     console.log(err);
-    // })
 }
 
 
