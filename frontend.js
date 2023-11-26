@@ -5,7 +5,7 @@ window.addEventListener('load', () => {
 
 const fetchDataFromCrudCrud = async () => {
     try{
-        const response = await axios.get("https://crudcrud.com/api/3d7204c49c774672ba41a7960a3158c8/appointmentData")
+        const response = await axios.get("https://crudcrud.com/api/72b62b09d14d458da4dd36db74a8bfce/appointmentData")
 
         for(var i=0;i<response.data.length;i++){
             showUserOnScreen(response.data[i])
@@ -30,7 +30,8 @@ async function crudcrudoperation(event){
     }
 
     try{
-        const res = await axios.post("https://crudcrud.com/api/3d7204c49c774672ba41a7960a3158c8/appointmentData",obj)
+        const res = await axios.post("https://crudcrud.com/api/72b62b09d14d458da4dd36db74a8bfce/appointmentData",obj);
+       
         showUserOnScreen(res.data)
     }catch(err){
         console.log(err)
@@ -75,7 +76,7 @@ async function crudcrudoperation(event){
 
 async function deleteDataFromCrudCrud(id) {
     try{
-        await axios.delete(`https://crudcrud.com/api/3d7204c49c774672ba41a7960a3158c8/appointmentData/${id}`)
+        await axios.delete(`https://crudcrud.com/api/72b62b09d14d458da4dd36db74a8bfce/appointmentData/${id}`)
     }
     catch(err){
         console.log(err)
@@ -93,7 +94,7 @@ async function editDataFromCrudCrud(id){
         phone: updatePhone
     };
     try {
-        const res = await axios.put(`https://crudcrud.com/api/3d7204c49c774672ba41a7960a3158c8/appointmentData/${id}`,)
+        const res = await axios.put(`https://crudcrud.com/api/72b62b09d14d458da4dd36db74a8bfce/appointmentData/${id}`,updateObj)
         showUserOnScreen(res.data)
     }
     catch (err) {
